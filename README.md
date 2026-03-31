@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI PPT 生成器
 
 基于人工智能的智能 PPT 生成器，支持自动生成大纲、对话调整、多模板选择和一键导出。
@@ -264,3 +265,7 @@ A: 确保使用的是支持的浏览器（Chrome、Firefox、Edge），并清除
 - [React](https://react.dev/) - 前端框架
 - [pptxgenjs](https://gitbrent.github.io/PptxGenJS/) - JavaScript PPT 生成库
 - [python-pptx](https://python-pptx.readthedocs.io/) - Python PPT 生成库# Test deployment
+=======
+# ai_pptx_generator_online
+We can use the AI model ability, to create PPT online.
+>>>>>>> 2d9ba9c79f5acdfca009468f7ba1ee24a639f1d6
