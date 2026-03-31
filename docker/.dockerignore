@@ -1,0 +1,11 @@
+**/__pycache__
+**/.pytest_cache
+**/.mypy_cache
+**/*.pyc
+**/.git
+**/.gitignore
+**/.env
+**/node_modules
+**/dist
+**/build
+**/.DS_Store
