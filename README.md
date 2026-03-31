@@ -263,4 +263,4 @@ A: 确保使用的是支持的浏览器（Chrome、Firefox、Edge），并清除
 - [FastAPI](https://fastapi.tiangolo.com/) - 现代化的 Python Web 框架
 - [React](https://react.dev/) - 前端框架
 - [pptxgenjs](https://gitbrent.github.io/PptxGenJS/) - JavaScript PPT 生成库
-- [python-pptx](https://python-pptx.readthedocs.io/) - Python PPT 生成库
+- [python-pptx](https://python-pptx.readthedocs.io/) - Python PPT 生成库# Test deployment
