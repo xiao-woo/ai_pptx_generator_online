@@ -55,8 +55,8 @@ export const generatePPTX = async (ppt: PPT): Promise<Blob> => {
   }
 
   // 生成 PPTX
-  const buffer = await pres.write({ outputType: 'nodebuffer' });
-  return new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation' });
+  const buffer = await pres.write({ outputType: 'nodebuffer' }) as Uint8Array;
+  return new Blob([buffer.buffer as BlobPart], { type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation' });
 };
 
 export const downloadPPTX = (blob: Blob, filename: string) => {

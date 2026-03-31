@@ -8,7 +8,7 @@ import { outlineApi } from '../api/outline';
 export default function OutlineEditorPage() {
   const navigate = useNavigate();
   const { outline, updateSection, removeSection, addSection } = useOutlineStore();
-  const { messages, isLoading, addMessage, setLoading, clearMessages } = useChatStore();
+  const { messages, isLoading, addMessage, setLoading } = useChatStore();
   const [input, setInput] = useState('');
   const [editingSection, setEditingSection] = useState<string | null>(null);
 

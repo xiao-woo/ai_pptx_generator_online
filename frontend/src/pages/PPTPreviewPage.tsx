@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Download, ArrowLeft, RefreshCw } from 'lucide-react';
-import { PPT, PPTSlide } from '../types';
+import { PPT } from '../types';
 import { pptApi } from '../api/ppt';
 import { useOutlineStore } from '../store/outlineStore';
 import { usePPTStore } from '../store/pptStore';
