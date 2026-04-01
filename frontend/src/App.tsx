@@ -46,6 +46,13 @@ function App() {
                 https://xiao-woo.github.io/ai_pptx_generator_online/
               </p>
             </div>
+
+            <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+              <h3 className="font-semibold text-red-900 mb-2">🔄 CI/CD流程</h3>
+              <p className="text-red-700">
+                GitHub Actions自动部署
+              </p>
+            </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-gray-200">
@@ -53,7 +60,7 @@ function App() {
               Powered by React + Vite + Tailwind CSS
             </p>
             <p className="text-xs text-gray-400 text-center mt-2">
-              最小MVP版本 v1.0 - 纯静态页面
+              最小MVP版本 v1.1 - CI/CD自动部署
             </p>
           </div>
         </div>
