@@ -1,66 +1,94 @@
 # AI PPT Generator - 最小MVP版本
 
-## 🚀 快速开始
+## 🚀 项目简介
 
 这是一个最小MVP版本，用于验证GitHub Pages部署流程。
 
-### ✅ 已完成
-
-- ✅ 简单的静态页面
+**特点：**
+- ✅ 纯静态页面
+- ✅ 无需后端API
 - ✅ 响应式设计
 - ✅ 现代化UI
-- ✅ GitHub Actions CI/CD配置
 
-### 📋 部署步骤
-
-#### 1. 配置GitHub Secrets
-
-在GitHub仓库中配置以下Secrets：
-
-**GitHub Pages部署：**
-- `GH_PAT_TOKEN`: GitHub Personal Access Token（需要repo权限）
-
-**Railway部署（可选）：**
-- `RAILWAY_TOKEN`: Railway API Token
-- `RAILWAY_SERVICE_ID`: Railway Service ID
-
-#### 2. 获取GitHub Personal Access Token
-
-1. 访问 https://github.com/settings/tokens
-2. 点击"Generate new token (classic)"
-3. 选择权限：repo（所有repo权限）
-4. 生成token并复制
-5. 在GitHub仓库的Settings > Secrets and variables > Actions中添加
-
-#### 3. 触发部署
-
-代码推送到main分支后，GitHub Actions会自动触发部署。
-
-查看部署状态：
-- 访问 https://github.com/xiao-woo/ai_pptx_generator_online/actions
-- 等待workflow完成
-- 访问GitHub Pages查看结果
-
-### 🎯 下一步计划
-
-- [ ] 添加AI对话功能
-- [ ] 集成PPT生成
-- [ ] 完善用户界面
-- [ ] 添加后端API
-
-### 📦 技术栈
+## 📦 技术栈
 
 - **前端**: React 18 + TypeScript + Vite
 - **样式**: Tailwind CSS
 - **部署**: GitHub Pages
 - **CI/CD**: GitHub Actions
 
-### 📝 注意事项
+## 🌐 访问地址
+
+**GitHub Pages**: https://xiao-woo.github.io/ai_pptx_generator_online/
+
+## 📋 项目结构
+
+```
+ai-ppt-generator/
+├── frontend/                 # 前端代码
+│   ├── src/
+│   │   ├── App.tsx         # 主组件
+│   │   ├── main.tsx        # 入口文件
+│   │   ├── index.css       # 样式文件
+│   │   └── vite-env.d.ts   # Vite环境变量类型声明
+│   ├── package.json
+│   └── vite.config.ts
+├── .github/                  # GitHub Actions
+│   └── workflows/
+│       └── deploy.yml      # 部署配置
+└── README.md
+```
+
+## 🚀 快速开始
+
+### 本地开发
+
+```bash
+# 安装依赖
+cd frontend
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+```
+
+### 部署到GitHub Pages
+
+1. 代码推送到main分支后，GitHub Actions会自动触发部署
+2. 访问GitHub Actions查看部署状态
+3. 等待部署完成后，访问GitHub Pages地址
+
+## ⚙️ GitHub Actions配置
+
+**触发条件**: push到main分支
+
+**部署目标**: GitHub Pages
+
+**GitHub Secrets**:
+- `GH_PAT_TOKEN`: GitHub Personal Access Token（需要repo权限）
+
+## 📝 注意事项
 
 - 当前版本为最小MVP，仅包含静态页面
-- 需要配置GitHub Secrets才能部署
+- 无需后端API，完全静态
 - 部署完成后会获得公网访问地址
+- GitHub Pages可能需要几分钟才能更新
+
+## 🎯 下一步计划
+
+- [ ] 添加AI对话功能
+- [ ] 集成PPT生成
+- [ ] 完善用户界面
+- [ ] 添加后端API
+
+## 📄 许可证
+
+MIT License
 
 ---
 
-**部署状态**: 🟢 代码已推送，等待GitHub Actions部署
+**版本**: v1.0 - 最小MVP
+**状态**: 🟢 已部署到GitHub Pages
