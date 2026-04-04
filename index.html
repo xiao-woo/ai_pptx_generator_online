@@ -44,6 +44,31 @@
             text-align: center;
         }
 
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -227,6 +252,24 @@
             background: #d0d0d0;
         }
 
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -235,6 +278,11 @@
             h1 {
                 font-size: 24px;
             }
+
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -242,6 +290,21 @@
     <div class="container">
         <h1>AI PPT 生成器</h1>
         <p class="subtitle">使用人工智能快速生成专业的演示文稿</p>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="generationCount">0</div>
+                <div class="stat-label">生成次数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="version">v1.0.0</div>
+                <div class="stat-label">版本</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="lastUpdate">刚刚</div>
+                <div class="stat-label">最后更新</div>
+            </div>
+        </div>
 
         <form id="pptForm">
             <div class="form-group">
@@ -275,6 +338,10 @@
                 <button type="button" id="downloadBtn">下载 PPT</button>
             </div>
         </div>
+
+        <div class="footer">
+            <p>AI PPT 生成器 - MVP版本 | <a href="https://github.com/xiao-woo/ai_pptx_generator_online" target="_blank">GitHub</a></p>
+        </div>
     </div>
 
     <script>
@@ -292,6 +359,19 @@
         const actionButtons = document.getElementById('actionButtons');
         const resetBtn = document.getElementById('resetBtn');
         const downloadBtn = document.getElementById('downloadBtn');
+        const generationCount = document.getElementById('generationCount');
+        const version = document.getElementById('version');
+        const lastUpdate = document.getElementById('lastUpdate');
+
+        // 版本信息
+        const APP_VERSION = 'v1.0.1';
+        const APP_LAST_UPDATE = '2026-04-04';
+
+        // 初始化统计
+        let count = parseInt(localStorage.getItem('generationCount') || '0');
+        generationCount.textContent = count;
+        version.textContent = APP_VERSION;
+        lastUpdate.textContent = APP_LAST_UPDATE;
 
         // 实时验证
         topicInput.addEventListener('input', function() {
@@ -356,6 +436,11 @@
                 loading.classList.remove('show');
                 submitBtn.disabled = false;
 
+                // 更新统计
+                count++;
+                localStorage.setItem('generationCount', count);
+                generationCount.textContent = count;
+
                 // 显示结果
                 const topic = topicInput.value;
                 const content = contentInput.value;
@@ -367,7 +452,8 @@
                     <strong>主题：</strong>${topic}<br><br>
                     <strong>内容：</strong>${content}<br><br>
                     <strong>状态：</strong>✅ PPT生成成功！<br>
-                    <strong>说明：</strong>这是MVP版本，功能正在开发中...
+                    <strong>说明：</strong>这是MVP版本，功能正在开发中...<br>
+                    <strong>生成时间：</strong>${new Date().toLocaleString()}
                 `;
                 result.classList.add('show');
                 actionButtons.style.display = 'flex';
