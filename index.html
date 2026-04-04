@@ -1,14 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI PPT 生成器</title>
-    <script type="module" crossorigin src="/assets/index-DmdV_Ptq.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BphoaNG3.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI PPT 生成器 - MVP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI PPT 生成器</h1>
+        <p class="subtitle">使用人工智能快速生成专业的演示文稿</p>
+
+        <form id="pptForm">
+            <div class="form-group">
+                <label for="topic">演示主题</label>
+                <input type="text" id="topic" name="topic" placeholder="例如：人工智能的未来" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">内容描述</label>
+                <textarea id="content" name="content" placeholder="描述您想要包含的内容要点..." required></textarea>
+            </div>
+
+            <button type="submit">生成 PPT</button>
+        </form>
+
+        <div class="result" id="result">
+            <h3>生成结果</h3>
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('pptForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const topic = document.getElementById('topic').value;
+            const content = document.getElementById('content').value;
+
+            // 模拟AI生成
+            const result = `
+                <strong>主题：</strong>${topic}<br><br>
+                <strong>内容：</strong>${content}<br><br>
+                <strong>状态：</strong>✅ PPT生成成功！<br>
+                <strong>说明：</strong>这是MVP版本，功能正在开发中...
+            `;
+
+            document.getElementById('resultText').innerHTML = result;
+            document.getElementById('result').classList.add('show');
+        });
+    </script>
+</body>
 </html>
